@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CARMESY - Promociones Semanales</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif; /* Fuente base similar a la de la imagen */
+            margin: 0;
+            background-color: #1a1a1a; /* Fondo oscuro casi negro */
+            color: #f0f0f0; /* Texto blanco suave */
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Alinea arriba para que el contenido empiece desde la parte superior */
+            min-height: 100vh;
+            padding: 30px 20px; /* Padding general del body */
+            box-sizing: border-box;
+            background-image: url('fondo1.jpeg'); /* Textura sutil */
+            background-repeat: repeat;
+        }
+
+        .menu-container {
+            width: 90%; /* Ancho responsivo */
+            max-width: 800px; /* Ancho máximo similar al de la imagen original */
+            background-color: #222; /* Fondo del menú */
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .header {
+            text-align: center;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .main-title {
+            font-family: 'Cinzel', serif; /* Fuente más elegante y destacada para el título principal */
+            font-size: 3.5em;
+            color: #c90202; /* Color dorado/amarillo brillante para el título */
+            margin: 0;
+            letter-spacing: 3px;
+            text-shadow: 0 0 15px rgba(196, 11, 5, 0.6);
+            text-transform: uppercase;
+        }
+
+        .separator-line {
+            width: 80%;
+            height: 3px;
+            background-color: #af1906; /* Línea dorada bajo el título */
+            margin: 20px auto 0;
+            border-radius: 2px;
+        }
+
+        .promotions-list {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 25px; /* Espacio entre cada promoción */
+        }
+
+        .promotion-item {
+            background-color: #2c2c2c; /* Fondo para cada recuadro de promoción */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            position: relative; /* Para posicionar el número */
+        }
+
+        .item-number {
+            font-family: 'Cinzel', serif;
+            font-size: 2.5em;
+            color: #dd3636; /* Número en dorado */
+            font-weight: 700;
+            position: absolute;
+            left: 15px;
+            top: 15px;
+            opacity: 0.8; /* Ligeramente transparente */
+        }
+
+        .item-details {
+            flex-grow: 1;
+            text-align: left; /* Alinea el texto a la izquierda */
+            padding-left: 60px; /* Espacio para el número */
+        }
+
+        .item-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8em;
+            color: #b00505; /* Naranja rojizo para los títulos de las promociones */
+            margin-top: 0;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            text-shadow: 0 0 8px rgba(180, 8, 8, 0.4);
+        }
+
+        .item-description {
+            font-size: 1em;
+            color: #bbb; /* Gris claro para la descripción */
+            margin-top: 0;
+            margin-bottom: 10px;
+            line-height: 1.4;
+            font-weight: 300;
+        }
+
+        .item-offer {
+            font-size: 1.2em;
+            color: #780606; /* Dorado para la oferta principal */
+            font-weight: 600;
+            margin: 0;
+            text-shadow: 0 0 5px rgba(247, 172, 41, 0.3);
+        }
+
+        .item-image {
+            flex-shrink: 0;
+            width: 120px;
+            height: 120px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .item-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .footer-note {
+            width: 100%;
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.9em;
+            color: #888; /* Gris oscuro para el pie de página */
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 20px;
+        }
+
+        /* --- Media Queries para Responsividad --- */
+        @media (max-width: 768px) {
+            .menu-container {
+                padding: 25px;
+                width: 95%;
+            }
+
+            .main-title {
+                font-size: 2.5em;
+                letter-spacing: 2px;
+            }
+
+            .separator-line {
+                width: 70%;
+            }
+
+            .promotion-item {
+                flex-direction: column; /* Apila imagen y texto en pantallas pequeñas */
+                text-align: center;
+                padding: 15px;
+                gap: 15px;
+            }
+
+            .item-number {
+                position: static; /* Quita el posicionamiento absoluto */
+                margin-bottom: 10px;
+                font-size: 2em;
+            }
+
+            .item-details {
+                padding-left: 0; /* Quita el padding extra */
+            }
+
+            .item-title {
+                font-size: 1.5em;
+            }
+
+            .item-description,
+            .item-offer {
+                font-size: 0.95em;
+            }
+
+            .item-image {
+                width: 100px;
+                height: 100px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main-title {
+                font-size: 2em;
+                letter-spacing: 1px;
+            }
+
+            .item-title {
+                font-size: 1.3em;
+            }
+
+            .item-description,
+            .item-offer {
+                font-size: 0.9em;
+            }
+
+            .footer-note {
+                font-size: 0.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="menu-container">
+        <div class="header">
+            <h1 class="main-title">PROMOCIONES SEMANALES</h1>
+            <div class="separator-line"></div>
+        </div>
+
+        <div class="promotions-list">
+            <div class="promotion-item">
+                <div class="item-number">1.</div>
+                <div class="item-details">
+                    <h2 class="item-title">LUNES DE RECARGA</h2>
+                    <p class="item-description">El inicio no tiene por qué ser aburrido.</p>
+                    <p class="item-offer">2x1 en mojitos y daiquirís toda la noche.</p>
+                </div>
+                <div class="item-image">
+                    <img src="https://via.placeholder.com/120x120?text=Mojito+Daiquiri" alt="Lunes de Recarga">
+                </div>
+            </div>
+
+            <div class="promotion-item">
+                <div class="item-number">2.</div>
+                <div class="item-details">
+                    <h2 class="item-title">MIÉRCOLESS</h2>
+                    <p class="item-description">Shots con carácter, risas sin límite.</p>
+                    <p class="item-offer">3 shots por $60 – elige entre mezcal, tequila, o fuego lento.</p>
+                </div>
+                <div class="item-image">
+                    <img src="https://via.placeholder.com/120x120?text=Shots" alt="Miércoles de Shots">
+                </div>
+            </div>
+
+            <div class="promotion-item">
+                <div class="item-number">3.</div>
+                <div class="item-details">
+                    <h2 class="item-title">VIERNES ROJO</h2>
+                    <p class="item-description">El ritual del fin de semana comienza aquí.</p>
+                    <p class="item-offer">2X1 en cualquier cóctel hasta las 10:00 p.m.</p>
+                </div>
+                <div class="item-image">
+                    <img src="https://via.placeholder.com/120x120?text=Coctel" alt="Viernes Rojo">
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-note">
+            <p>Los precios y promociones pueden variar. Consulta a tu mesero.</p>
+        </div>
+    </div>
+</body>
+</html>

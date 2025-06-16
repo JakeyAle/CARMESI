@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservaciones - Carmesí</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,400&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            /* Aquí están las propiedades para la imagen de fondo */
+            background-image: url('WhatsApp Image 2025-06-15 at 7.10.35 PM.jpeg'); /* ¡IMPORTANTE! Reemplaza esto con la ruta a tu imagen. */
+            background-size: cover; /* Asegura que la imagen cubra todo el fondo */
+            background-position: center; /* Centra la imagen */
+            background-repeat: no-repeat; /* Evita que la imagen se repita */
+            background-attachment: fixed; /* Opcional: mantiene la imagen fija al hacer scroll */
+            background-color: #8e0b02; /* Color de fondo de respaldo si la imagen no carga */
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .container {
+            background-color: #000; /* Fondo negro para el recuadro principal */
+            border: 1px solid #333; /* Borde sutil, si lo deseas, o ajusta a la imagen original que parece no tenerlo */
+            padding: 40px 50px; /* Más padding para que el contenido no esté tan pegado a los bordes */
+            width: 100%;
+            max-width: 600px; /* Ancho máximo para el recuadro */
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.7); /* Sombra para profundidad */
+            text-align: center; /* Centrar el texto en general */
+            color: #fff; /* Texto en color blanco por defecto */
+            box-sizing: border-box;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif; /* Fuente similar a la de la imagen */
+            font-style: italic;
+            font-weight: 400;
+            font-size: 2.8em; /* Tamaño de fuente para el título */
+            margin-bottom: 20px;
+            color: #e0e0e0; /* Un blanco suave para el título */
+        }
+
+        .divider {
+            width: 60px;
+            height: 1px;
+            background-color: #fff;
+            margin: 0px auto 30px auto; /* Centrar y espaciar el divisor */
+        }
+
+        p {
+            font-size: 1.1em; /* Tamaño de fuente para el texto */
+            line-height: 1.6;
+            margin-bottom: 15px;
+            color: #b0b0b0; /* Un gris más claro para el texto de información */
+        }
+
+        .contact-info {
+            margin-top: 30px;
+            text-align: left; /* Alinear información de contacto a la izquierda */
+        }
+
+        .contact-info p {
+            margin-bottom: 10px;
+            font-size: 1.1em;
+            color: #f0f0f0; /* Color de texto más claro para la información de contacto */
+        }
+
+        .contact-info strong {
+            color: #fff; /* Negrita en color blanco puro para los títulos de contacto */
+            margin-right: 5px;
+        }
+
+        /* Media queries para responsividad */
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px;
+                max-width: 90%;
+            }
+
+            h1 {
+                font-size: 2.2em;
+            }
+
+            p, .contact-info p {
+                font-size: 1em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Reservaciones</h1>
+        <div class="divider"></div>
+        <p>¿Quieres agendar una cita con nosotros?</p>
+
+        <p><strong>Horario de atención:</strong></p>
+        <p>De lunes a viernes, en un horario de 8:00 p.m. a 8:00 a.m.</p>
+
+        <p>Puedes reservar a través de los siguientes medios:</p>
+
+        <div class="contact-info">
+            <p>📞 <strong>Teléfono:</strong> +52 772 139 74 51</p>
+            <p>💬 <strong>Redes sociales:</strong> Instagram- @rojo_carmesi10</p>
+            <p>📧 <strong>Correo electrónico:</strong> rojocarmesicv@gmail.com</p>
+        </div>
+    </div>
+</body>
+</html>

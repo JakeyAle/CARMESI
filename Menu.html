@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CARMESI - Bebidas</title>
+    <style>
+        /* Declaración de la fuente "New York Font" */
+        /* Asegúrate de que la ruta y el formato del archivo sean correctos */
+        @font-face {
+            font-family: 'New York Font'; /* Nombre que usaremos para la fuente */
+            src: url('fonts/NewYorkFont.ttf') format('truetype'); /* Ajusta esta ruta y el formato */
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        body {
+            font-family: Arial, sans-serif; /* Fuente de respaldo para el resto del cuerpo */
+            margin: 0;
+            /* background-color: #333; */ /* Comentamos o eliminamos esto para que la imagen de fondo se vea */
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            padding: 20px;
+            box-sizing: border-box;
+
+            /* --- Propiedades para la imagen de fondo --- */
+            background-image: url('fondo2.jpeg'); /* Reemplaza con la ruta de tu imagen */
+            background-size: cover; /* Ajusta la imagen para cubrir todo el body */
+            background-position: center center; /* Centra la imagen */
+            background-attachment: fixed; /* Mantiene la imagen fija al hacer scroll */
+            background-repeat: no-repeat; /* Evita que la imagen se repita */
+            /* --- Fin de las propiedades de imagen de fondo --- */
+        }
+
+        .menu-container {
+            width: 900px; /* Ajusta el ancho total del menú */
+            background-color: rgba(34, 34, 34, 0.9); /* Fondo del menú un poco más claro con transparencia para que se vea el fondo */
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            /* Añadir un margen superior si quieres que el menú no empiece pegado arriba */
+            margin-top: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+            width: 100%;
+        }
+
+        .header h1 {
+            font-family: 'New York Font', serif; /* Aplica "New York Font" al título principal, con serif como fallback */
+            font-size: 3em;
+            margin: 0;
+            letter-spacing: 2px;
+            color: #f0f0f0;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            margin-top: 5px;
+            color: #bbb;
+        }
+
+        .fork-knife {
+            font-size: 3em;
+            margin-bottom: 10px;
+            color: #bbb;
+            display: flex;
+            justify-content: center;
+            gap: 150px; /* Espacio entre los iconos */
+        }
+
+        .menu-sections {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            gap: 30px;
+            flex-wrap: wrap; /* Permite que las secciones se envuelvan si el ancho es pequeño */
+        }
+
+        .menu-column {
+            flex: 1;
+            min-width: 380px; /* Ancho mínimo para cada columna, ajustado por las imágenes */
+            max-width: 48%; /* Para permitir dos columnas */
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .menu-item-group {
+            background-color: rgba(44, 44, 44, 0.85); /* Fondo para cada recuadro de bebida con transparencia */
+            padding: 15px; /* Ajustado el padding */
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            display: flex;
+            gap: 15px; /* Espacio entre imagen y detalles */
+            align-items: center; /* Alinea verticalmente imagen y texto */
+        }
+
+        .item-image {
+            flex-shrink: 0; /* Evita que la imagen se achique */
+            width: 120px; /* Ancho fijo para la imagen */
+            height: 120px; /* Altura fija para la imagen */
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .item-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Cubre el área sin distorsionarse */
+            display: block;
+        }
+
+        .menu-details {
+            flex-grow: 1; /* Permite que los detalles ocupen el espacio restante */
+        }
+
+        .menu-details h2 { /* Títulos de las bebidas */
+            font-family: Verdana, sans-serif; /* Aplica Verdana a los títulos de las bebidas */
+            font-size: 1.5em; /* Tamaño de fuente para el nombre de la bebida */
+            margin-top: 0;
+            margin-bottom: 5px;
+            color: #880808; /* Color Carmesí para el nombre de la bebida */
+            /* Quitamos el border-bottom para los nombres individuales de bebidas */
+        }
+
+        .menu-details p { /* Usaremos p para el precio */
+            font-size: 1.1em;
+            margin: 0;
+            color: #e0e0e0;
+            font-weight: bold;
+        }
+
+        /* Ajustes para pantallas más pequeñas */
+        @media (max-width: 768px) {
+            .menu-sections {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .menu-column {
+                width: 90%; /* Ocupa más ancho en pantallas pequeñas */
+                min-width: unset;
+                max-width: unset;
+            }
+
+            .menu-item-group {
+                flex-direction: column; /* Apila imagen y detalles */
+                text-align: center;
+                align-items: center;
+            }
+
+            .item-image {
+                margin-bottom: 10px; /* Espacio entre imagen y texto apilados */
+            }
+
+            .menu-details h2 {
+                text-align: center; /* Centra el nombre de la bebida */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="menu-container">
+        <div class="header">
+            <div class="fork-knife">
+                <span>&#x2694;</span>
+                <span>&#x2694;</span>
+            </div>
+            <h1>COCTELES</h1>
+            <p></p>
+        </div>
+
+        <div class="menu-sections">
+            <div class="menu-column">
+                <div class="menu-item-group">
+                    <div class="item-image">
+                        <img src="DAIQUIRI.PNG" alt="Daiquirí">
+                    </div>
+                    <div class="menu-details">
+                        <h2>DAIQUIRÍ</h2>
+                        <p>$40.00</p>
+                    </div>
+                </div>
+
+                <div class="menu-item-group">
+                    <div class="item-image">
+                        <img src="WhatsApp Image 2025-06-15 at 6.07.48 PM.jpeg" alt="Tequila Sunshine">
+                    </div>
+                    <div class="menu-details">
+                        <h2>TEQUILA SUNSHINE</h2>
+                        <p>$45.00</p>
+                    </div>
+                </div>
+
+                <div class="menu-item-group">
+                    <div class="item-image">
+                        <img src="MARGARITA.PNG" alt="Margarita">
+                    </div>
+                    <div class="menu-details">
+                        <h2>MARGARITA</h2>
+                        <p>$40.00</p>
+                    </div>
+                </div>
+
+                <div class="menu-item-group">
+                    <div class="item-image">
+                        <img src="PIÑA COLADA.png" alt="Piña Colada">
+                    </div>
+                    <div class="menu-details">
+                        <h2>PIÑA COLADA</h2>
+                        <p>$35.00</p>
+                    </div>
+                </div>
+
+                <div class="menu-item-group">
+                    <div class="item-image">
+                        <img src="MAT.PNG" alt="Manhattan">
+                    </div>
+                    <div class="menu-details">
+                        <h2>MANHATTAN</h2>
+                        <p>$50.00</p>
+                    </div>
+                </div>
+
+                <div class="menu-item-group">
+                    <div class="item-image">
+                        <img src="MOJITO.PNG" alt="Mojito">
+                    </div>
+                    <div class="menu-details">
+                        <h2>MOJITO</h2>
+                        <p>$35.00</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-column">
+                <div class="menu-item-group">
+                    <div class="item-image">
+                        <img src="GIN.PNG" alt="Gin & Tonic">
+                    </div>
+                    <div class="menu-details">
+                        <h2>GIN & TONIC</h2>
+                        <p>$45.00</p>
+                    </div>
+                </div>
+
+                <div class="menu-item-group">
+                    <div class="item-image">
+                        <img src="SANGRIA.PNG" alt="Sangría">
+                    </div>
+                    <div class="menu-details">
+                        <h2>SANGRÍA</h2>
+                        <p>$40.00</p>
+                    </div>
+                </div>
+
+                <div class="menu-item-group">
+                    <div class="item-image">
+                        <img src="BLODY.PNG" alt="Bloody Mary">
+                    </div>
+                    <div class="menu-details">
+                        <h2>BLOODY MARY</h2>
+                        <p>$30.00</p>
+                    </div>
+                </div>
+
+                <div class="menu-item-group">
+                    <div class="item-image">
+                        <img src="CARMESI CLASICO.jpeg" alt="Carmesí Clásico">
+                    </div>
+                    <div class="menu-details">
+                        <h2>CARMESÍ CLÁSICO</h2>
+                        <p>$45.00</p>
+                    </div>
+                </div>
+
+                <div class="menu-item-group">
+                    <div class="item-image">
+                        <img src="ROJO AMANECER.jpeg" alt="Rojo Amanecer">
+                    </div>
+                    <div class="menu-details">
+                        <h2>ROJO AMANECER</h2>
+                        <p>$50.00</p>
+                    </div>
+                </div>
+
+                <div class="menu-item-group">
+                    <div class="item-image">
+                        <img src="FUEGO LENTO.jpeg" alt="Fuego Lento">
+                    </div>
+                    <div class="menu-details">
+                        <h2>FUEGO LENTO</h2>
+                        <p>$50.00</p>
+                    </div>
+                </div>
+
+                <div class="menu-item-group">
+                    <div class="item-image">
+                        <img src="TINTA NEGRA.jpeg" alt="Tinta Negra">
+                    </div>
+                    <div class="menu-details">
+                        <h2>TINTA NEGRA</h2>
+                        <p>$40.00</p>
+                    </div>
+                </div>
+
+                <div class="menu-item-group">
+                    <div class="item-image">
+                        <img src="NOCHE ETERNA.jpeg" alt="Noche Eterna">
+                    </div>
+                    <div class="menu-details">
+                        <h2>NOCHE ETERNA</h2>
+                        <p>$45.00</p>
+                    </div>
+                </div>
+
+                <div class="menu-item-group">
+                    <div class="item-image">
+                        <img src="MAI TAI.PNG" alt="Mai Tai">
+                    </div>
+                    <div class="menu-details">
+                        <h2>MAI TAI</h2>
+                        <p>$35.00</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
